@@ -7,3 +7,12 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+
+
+
+.image-thumbnails img {
+  margin: 10px;
+  max-height: 400px;
+  max-width: 300px;
+}
