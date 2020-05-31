@@ -17,7 +17,7 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ['Joey doesn’t share food!', ' I wish I could, but I don’t want to.', 'How you doin?', 'They don’t know that we know they know we know.'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
@@ -25,4 +25,40 @@ function addRandomGreeting() {
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
+}
+ function RandomProjects() {
+  fetch('/data').then(response => response.json()).then((stats) => {
+    // stats is an object, not a string, so we have to
+    // reference its fields to create HTML content
+
+    const statsListElement = document.getElementById('randomproject');
+    const l=stats.length;
+    statsListElement.innerHTML = '';
+   
+   var i;
+    for( i=0;i<l;i++){
+statsListElement.appendChild(
+        createListElement( stats[i]));
+    }
+    // statsListElement.appendChild(
+    //     createListElement( stats[0]));
+    // statsListElement.appendChild(
+    //     createListElement( stats[1]));
+    //  statsListElement.appendChild(
+    //     createListElement( stats[2]));
+    //  statsListElement.appendChild(
+    //     createListElement( stats[3]));
+    //  statsListElement.appendChild(
+    //     createListElement( stats[4]));
+    // statsListElement.appendChild(
+    //     createListElement( stats[5]));
+    
+  });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
